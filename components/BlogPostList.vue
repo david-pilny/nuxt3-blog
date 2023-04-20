@@ -8,15 +8,22 @@ const { data: blogPostList } = useAsyncData('blogPostList', () => {
   <div class="container">
     <section class="articles">
       <div class="column is-8 is-offset-2">
-        <div v-for="blogPost in blogPostList" :key="blogPost._path" class="card article">
-          <NuxtLink to="/blog/my-second-blog-post">
+        <div
+          v-for="blogPost in blogPostList"
+          :key="blogPost._path"
+          class="card article"
+        >
+          <NuxtLink :to="blogPost._path">
             <section class="blog-post-card card article">
               <div class="media">
                 <div class="media-content has-text-centered">
                   <h3 class="title article-title has-text-weight-bold">
                     {{ blogPost.title }}
                   </h3>
-                  <BlogPostMeta :author="blogPost.author" :date="blogPost.dates.published" />
+                  <BlogPostMeta
+                    :author="blogPost.author"
+                    :date="blogPost.dates.published"
+                  />
                 </div>
               </div>
               <div class="card-content">
